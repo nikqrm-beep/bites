@@ -102,6 +102,8 @@ class MindARController {
                         if (imgAmarillo) imgAmarillo.visible = true;
                         if (imgVerde) imgVerde.visible = false;
                         if (imgRojo) imgRojo.visible = false;
+                        if (imgGrande) imgGrande.visible = false;
+                        if (imgChiquitos) imgChiquitos.visible = true;
 
                         // 2. Ejecutar el sonido original que tenía el botón
                         if (audioOriginal && typeof audioOriginal === 'function') {
@@ -117,6 +119,8 @@ class MindARController {
                         if (imgAmarillo) imgAmarillo.visible = false;
                         if (imgVerde) imgVerde.visible = true;
                         if (imgRojo) imgRojo.visible = false;
+                        if (imgGrande) imgGrande.visible = false;
+                        if (imgChiquitos) imgChiquitos.visible = true;
 
                         if (audioOriginal && typeof audioOriginal === 'function') {
                             audioOriginal();
@@ -131,6 +135,8 @@ class MindARController {
                         if (imgAmarillo) imgAmarillo.visible = false;
                         if (imgVerde) imgVerde.visible = false;
                         if (imgRojo) imgRojo.visible = true;
+                        if (imgGrande) imgGrande.visible = false;
+                        if (imgChiquitos) imgChiquitos.visible = true;
 
                         if (audioOriginal && typeof audioOriginal === 'function') {
                             audioOriginal();
