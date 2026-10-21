@@ -83,9 +83,13 @@ class MindARController {
                 const imgAmarillo = content.getObjectByName('Img_Amarillo');
                 const imgVerde = content.getObjectByName('Img_Verde');
                 const imgRojo = content.getObjectByName('Img_Rojo');
+                const imgGrande = content.getObjectByName('Img_Grande');
+                const imgChiquitos = content.getObjectByName('Img_Chiquitos');
 
                 // Asegurar estado inicial (solo amarillo visible si existen las imágenes)
-                if (imgAmarillo) imgAmarillo.visible = true;
+                if (imgGrande) imgGrande.visible = true;
+                if (imgChiquitos) imgChiquitos.visible = false;
+                if (imgAmarillo) imgAmarillo.visible = false;
                 if (imgVerde) imgVerde.visible = false;
                 if (imgRojo) imgRojo.visible = false;
 
