@@ -75,75 +75,70 @@ class MindARController {
                 content.scale.setScalar(0.6);
                 content.rotation.set(THREE.MathUtils.degToRad(90), 0, 0);
 
-                // --- LÓGICA DE LOS BOTONES 3D ---
-                const btnAmarillo = content.getObjectByName('BotonAmarillo');
-                const btnVerde = content.getObjectByName('BotonVerde');
-                const btnRojo = content.getObjectByName('BotonRojo');
-
+                // --- REFERENCIAS A LAS IMÁGENES 3D ---
                 const imgAmarillo = content.getObjectByName('Img_Amarillo');
                 const imgVerde = content.getObjectByName('Img_Verde');
                 const imgRojo = content.getObjectByName('Img_Rojo');
                 const imgGrande = content.getObjectByName('Img_Grande');
                 const imgChiquitos = content.getObjectByName('Img_Chiquitos');
 
-                // Asegurar estado inicial (solo amarillo visible si existen las imágenes)
+                // Estado inicial de las imágenes
                 if (imgGrande) imgGrande.visible = true;
                 if (imgChiquitos) imgChiquitos.visible = false;
                 if (imgAmarillo) imgAmarillo.visible = false;
                 if (imgVerde) imgVerde.visible = false;
                 if (imgRojo) imgRojo.visible = false;
 
-                if (btnAmarillo) {
-                    // Guardamos la función de audio que ya traía el botón desde Three.js (si la tiene)
-                    const audioOriginal = btnAmarillo.onClick;
+                // --- CREAR EL OBJETO DE AUDIO ---
+                // Reemplaza 'assets/audio/tu_audio.mp3' por la ruta real de tu archivo de audio
+                const audioEfecto = new Audio('assets/audio/tu_audio.mp3'); 
 
-                    btnAmarillo.onClick = () => {
-                        // 1. Cambiar las imágenes
+                // --- CAPTURAR LOS BOTONES ESTÁTICOS DEL HTML ---
+                const btnAmarilloHTML = document.getElementById('btnAmarillo');
+                const btnVerdeHTML = document.getElementById('btnVerde');
+                const btnRojoHTML = document.getElementById('btnRojo');
+
+                if (btnAmarilloHTML) {
+                    btnAmarilloHTML.addEventListener('click', () => {
                         if (imgAmarillo) imgAmarillo.visible = true;
                         if (imgVerde) imgVerde.visible = false;
                         if (imgRojo) imgRojo.visible = false;
                         if (imgGrande) imgGrande.visible = false;
                         if (imgChiquitos) imgChiquitos.visible = true;
 
-                        // 2. Ejecutar el sonido original que tenía el botón
-                        if (audioOriginal && typeof audioOriginal === 'function') {
-                            audioOriginal();
-                        }
-                    };
+                        // Reproducir audio
+                        audioEfecto.currentTime = 0; // Reinicia el audio si ya estaba sonando
+                        audioEfecto.play().catch(err => console.log("Audio bloqueado:", err));
+                    });
                 }
 
-                if (btnVerde) {
-                    const audioOriginal = btnVerde.onClick;
-
-                    btnVerde.onClick = () => {
+                if (btnVerdeHTML) {
+                    btnVerdeHTML.addEventListener('click', () => {
                         if (imgAmarillo) imgAmarillo.visible = false;
                         if (imgVerde) imgVerde.visible = true;
                         if (imgRojo) imgRojo.visible = false;
                         if (imgGrande) imgGrande.visible = false;
                         if (imgChiquitos) imgChiquitos.visible = true;
 
-                        if (audioOriginal && typeof audioOriginal === 'function') {
-                            audioOriginal();
-                        }
-                    };
+                        // Reproducir audio
+                        audioEfecto.currentTime = 0;
+                        audioEfecto.play().catch(err => console.log("Audio bloqueado:", err));
+                    });
                 }
 
-                if (btnRojo) {
-                    const audioOriginal = btnRojo.onClick;
-
-                    btnRojo.onClick = () => {
+                if (btnRojoHTML) {
+                    btnRojoHTML.addEventListener('click', () => {
                         if (imgAmarillo) imgAmarillo.visible = false;
                         if (imgVerde) imgVerde.visible = false;
                         if (imgRojo) imgRojo.visible = true;
                         if (imgGrande) imgGrande.visible = false;
                         if (imgChiquitos) imgChiquitos.visible = true;
 
-                        if (audioOriginal && typeof audioOriginal === 'function') {
-                            audioOriginal();
-                        }
-                    };
+                        // Reproducir audio
+                        audioEfecto.currentTime = 0;
+                        audioEfecto.play().catch(err => console.log("Audio bloqueado:", err));
+                    });
                 }
-                // ---------------------------------
 
                 anchor.group.add(content);
             }
