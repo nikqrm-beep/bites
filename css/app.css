@@ -119,21 +119,22 @@ canvas {
 }
 
 #ui-buttons-container button {
-    background: transparent;
-    border: none;
+    background: rgba(0, 0, 0, 0.4); /* Fondo oscuro translúcido de respaldo */
+    border: 2px solid #00ff00;    /* Borde verde brillante temporal para ver los límites */
+    border-radius: 12px;
     cursor: pointer;
-    padding: 0;
+    padding: 5px;
     transition: transform 0.1s ease;
 }
 
 #ui-buttons-container button img {
-    width: 85px;   /* Puedes ajustar este valor si los quieres más grandes o más chicos */
-    height: auto;  /* Mantiene la proporción original de tus imágenes */
+    width: 110px;  /* <--- Aumentado de tamaño para que se vean más grandes y claros */
+    height: auto;  /* Mantiene la proporción original */
     display: block;
 }
 
 #ui-buttons-container button:active {
-    transform: scale(0.92); /* Efecto de rebote al presionarlos */
+    transform: scale(0.92);
 }
 /* Imagen específica para cada botón */
 #btnAmarillo {
