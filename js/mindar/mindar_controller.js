@@ -191,7 +191,7 @@ class MindARController {
         this.dispatch('start', {});
         const uiContainer = document.getElementById('ui-buttons-container');
         if (uiContainer) {
-            uiContainer.style.display = 'block';
+            uiContainer.style.setProperty('display', 'block', 'important');
         }
     }
 
