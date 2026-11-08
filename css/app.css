@@ -136,7 +136,7 @@ canvas {
     transform: scale(0.92);
 }
 /* Imagen específica para cada botón */
-#btnAmarillo {
+#btn-amarillo {
     background-image: url('assets/btnDescripcion.png');
 }
 
