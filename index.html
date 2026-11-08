@@ -157,6 +157,12 @@
 							overlay.classList.add('hidden');
 							setTimeout(() => overlay.remove(), 400);
 						}
+
+						// --- MOSTRAR LOS BOTONES SOLO CUANDO INICIA EL AR ---
+const uiButtons = document.getElementById('ui-buttons-container');
+if (uiButtons) {
+    uiButtons.style.display = 'flex';
+}
 					} catch (e) {
 						console.error('Error detallado al iniciar:', e);
 						startButton.textContent = 'Reintentar';
