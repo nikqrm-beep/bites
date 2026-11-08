@@ -113,27 +113,28 @@ canvas {
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    display: none; 
-    gap: 5px !important;      /* Muy juntos */
+    display: flex; 
+    gap: -15px !important;    /* <--- ¡Gap negativo para que se acerquen o se crucen ligeramente si quieres! */
+    justify-content: center;
     z-index: 3000;
 }
 
 #ui-buttons-container button {
-    width: 180px !important;  /* Ancho muy grande y horizontal */
-    height: 210px !important; /* Alto menor para forzar la forma de tarjeta */
+    width: 170px !important;  
+    height: 105px !important; 
     background: transparent !important;
     border: none !important;
-    border-radius: 16px;
+    border-radius: 14px;
     cursor: pointer;
     padding: 0 !important;
-    margin: 0 !important;
+    margin: 0 -8px !important;  /* <--- Esto anula cualquier espacio y los acerca al máximo */
     overflow: hidden;
 }
 
 #ui-buttons-container button img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: fill !important; /* Estira la imagen para ocupar todo el rectángulo ancho */
+    object-fit: fill !important;
     display: block;
 }
 /* Imagen específica para cada botón */
