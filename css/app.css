@@ -119,11 +119,11 @@ canvas {
 }
 
 #ui-buttons-container button {
-    width: 105px;  /* Ancho grande del botón */
-    height: 120px; /* Alto grande del botón */
+    width: 130px;  /* <--- Ancho aún mayor (puedes subirlo a 140px o 150px si los quieres gigantes) */
+    height: 145px; /* <--- Alto aún mayor */
     background: transparent;
-    border: none;  /* Quitamos el borde verde si ya no lo necesitas, o déjalo si te gusta */
-    border-radius: 16px;
+    border: none;
+    border-radius: 18px;
     cursor: pointer;
     padding: 0;
     overflow: hidden;
@@ -131,11 +131,9 @@ canvas {
 }
 
 #ui-buttons-container button img {
-    width: 130%;   /* Hace la imagen un poco más grande que el botón */
-    height: 130%;
-    object-fit: cover;
-    margin-top: -15%;   /* Centra la imagen ampliada */
-    margin-left: -15%;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Mantiene la imagen estirada cubriendo todo el nuevo tamaño */
     display: block;
 }
 
