@@ -19,41 +19,12 @@
 	</script>
 
 	<script type="module">
-		import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/loaders/GLTFLoader.js';
-		window.ThreeGLTFLoader = GLTFLoader;
-	</script>
-</head>
-
-<body ontouchstart="">
-
-	<div id="ar-container"></div>
-
-	<div class="log" id="log">asdasdsa</div>
-
-	<div id="overlay">
-		<button id="start-button">Iniciar</button>
-		<div id="progress-container">
-			<div id="progress-bar-track">
-				<div id="progress-bar-fill"></div>
-			</div>
-			<div id="progress-label">Cargando... 0%</div>
-		</div>
-	</div>
-
-	<!-- Botones estáticos en la pantalla -->
-<div id="ui-buttons-container">
-    <button id="btnAmarillo">Amarillo</button>
-    <button id="btnVerde">Verde</button>
-    <button id="btnRojo">Rojo</button>
-</div>
-
-	<script type="module">
 
 		import * as THREE from './js/three.module.js';
 		import { APP } from './js/app.js';
 		import { MindARController } from './js/mindar/mindar_controller.js';
 
-		window.THREE = THREE; // Used by APP Scripts.
+		window.THREE = THREE;
 
 		const log = document.getElementById('log');
 		const overlay = document.getElementById('overlay');
@@ -76,14 +47,12 @@
 		}
 
 		async function loadEverything() {
-
 			if (loadPromise) return loadPromise;
 
 			loadPromise = (async () => {
-
+				console.log("1. Iniciando carga de app.json...");
 				setProgress(0, 'Cargando escena...');
 
-				// Descarga app.json con progreso real (0% - 25%)
 				const text = await new Promise((resolve, reject) => {
 					const loader = new THREE.FileLoader();
 					loader.load(
@@ -99,6 +68,7 @@
 					);
 				});
 
+				console.log("2. app.json cargado, creando reproductor...");
 				player = new APP.Player({ alpha: true });
 				await player.load(JSON.parse(text));
 				player.setSize(window.innerWidth, window.innerHeight);
@@ -106,7 +76,6 @@
 				setProgress(55, 'Escena lista...');
 
 				document.body.appendChild(player.dom);
-
 				window.addEventListener('resize', function () {
 					player.setSize(window.innerWidth, window.innerHeight);
 				});
@@ -120,21 +89,21 @@
 
 				setProgress(100, 'Listo');
 				loaded = true;
-
-				console.log(window.player);
+				console.log("3. Carga finalizada con éxito.");
 
 			})().catch((e) => {
 				loaded = false;
-				loadPromise = null; // permite reintentar al pulsar el botón
+				loadPromise = null;
+				console.error("Error en loadEverything:", e);
 				throw e;
 			});
 
 			return loadPromise;
 		}
 
-		// Al darle al botón start se inicia la cámara (requiere gesto del usuario).
+		// Al darle al botón start se inicia la cámara
 		startButton.addEventListener('click', async () => {
-
+			console.log("Botón Iniciar presionado.");
 			progressContainer.style.display = 'flex';
 
 			try {
@@ -142,24 +111,31 @@
 				if (!loaded) return;
 
 				setProgress(90, 'Iniciando cámara...');
+				console.log("Iniciando MindARController...");
 
-				// La cámara se inicia aquí, dentro del gesto del usuario.
 				mindarController = new MindARController(arContainer, player, debugMode);
 				window.mindarController = mindarController;
 
 				await mindarController.start();
+				console.log("MindAR iniciado correctamente.");
 
-				// El player sigue funcionando (scripts/audio) pero su canvas ya no se usa.
 				if (player?.dom) player.dom.style.display = 'none';
 
 				overlay.classList.add('hidden');
 				setTimeout(() => overlay.remove(), 400);
 			} catch (e) {
-				console.error('Error durante la carga:', e);
+				console.error('Error detallado al iniciar:', e);
 				startButton.textContent = 'Reintentar';
 				setProgress(0, 'Error al iniciar');
 			}
+		});
 
+		// Carga automática al abrir
+		loadEverything().catch((e) => {
+			console.error('Error en carga automática:', e.message);
+			progressContainer.style.display = 'flex';
+			setProgress(0, 'Error al cargar');
+			startButton.textContent = 'Reintentar';
 		});
 
 		// Todo se carga automáticamente al abrir la página.
