@@ -114,7 +114,7 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     display: none; /* Se mantiene oculto hasta que inicia el AR */
-    gap: 7px;
+    gap: 1px;
     z-index: 3000;
 }
 
