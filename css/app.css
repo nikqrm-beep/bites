@@ -113,9 +113,9 @@ canvas {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
+    display: none; /* <--- CAMBIO: Ocultos por defecto */
     gap: 15px;
-    z-index: 3000; /* Por encima de la cámara y de la interfaz de inicio */
+    z-index: 3000;
 }
 
 #ui-buttons-container button {
