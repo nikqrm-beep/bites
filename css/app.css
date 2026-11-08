@@ -114,16 +114,16 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     display: none; /* Se mantiene oculto hasta que inicia el AR */
-    gap: 1px;
+    gap: 10px;     /* <--- Reducimos este valor para que estén menos separados */
     z-index: 3000;
 }
 
 #ui-buttons-container button {
-    width: 400px;  /* <--- Ancho grande para que se expandan horizontalmente */
-    height: 290px; /* <--- Alto proporcional estilo tarjeta horizontal */
+    width: 130px;  
+    height: 145px; 
     background: transparent;
     border: none;
-    border-radius: 16px;
+    border-radius: 18px;
     cursor: pointer;
     padding: 0;
     overflow: hidden;
@@ -133,7 +133,7 @@ canvas {
 #ui-buttons-container button img {
     width: 100%;
     height: 100%;
-    object-fit: fill; /* Llena por completo el rectángulo ancho */
+    object-fit: fill; 
     display: block;
 }
 
