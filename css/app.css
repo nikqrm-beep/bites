@@ -126,10 +126,10 @@ canvas {
        - En celular nunca medirán menos de 95px.
        - Se adaptan fluidamente al ancho de la pantalla (26vw).
        - En PC o pantallas grandes se detendrán al tope máximo de 160px. */
-    width: clamp(95px, 31vw, 420px) !important;  
+    width: clamp(110px, 32.5vw, 420px) !important;  
     
     /* Mantenemos la proporción correcta de tarjeta horizontal para que no se deformen */
-    height: clamp(58px, 19vw, 250px) !important; 
+    height: clamp(68px, 20vw, 250px) !important; 
     
     background: transparent !important;
     border: none !important;
