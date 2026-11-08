@@ -119,8 +119,8 @@ canvas {
 }
 
 #ui-buttons-container button {
-    width: 160px;  /* <--- Ancho grande para que se expandan horizontalmente */
-    height: 100px; /* <--- Alto proporcional estilo tarjeta horizontal */
+    width: 350px;  /* <--- Ancho grande para que se expandan horizontalmente */
+    height: 290px; /* <--- Alto proporcional estilo tarjeta horizontal */
     background: transparent;
     border: none;
     border-radius: 16px;
