@@ -131,9 +131,11 @@ canvas {
 }
 
 #ui-buttons-container button img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill; /* <--- Esto estira la imagen para que cubra todo el espacio del botón sin dejar espacios vacíos */
+    width: 130%;   /* Hace la imagen un poco más grande que el botón */
+    height: 130%;
+    object-fit: cover;
+    margin-top: -15%;   /* Centra la imagen ampliada */
+    margin-left: -15%;
     display: block;
 }
 
