@@ -114,12 +114,12 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     display: none; /* Se mantiene oculto hasta que inicia el AR */
-    gap: 15px;
+    gap: 12px;
     z-index: 3000;
 }
 
 #ui-buttons-container button {
-    width: 350px;  /* <--- Ancho grande para que se expandan horizontalmente */
+    width: 400px;  /* <--- Ancho grande para que se expandan horizontalmente */
     height: 290px; /* <--- Alto proporcional estilo tarjeta horizontal */
     background: transparent;
     border: none;
