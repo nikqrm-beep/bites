@@ -110,14 +110,14 @@ canvas {
 
 /* Contenedor principal: oculto al inicio por defecto */
 #ui-buttons-container {
-    display: none !important;
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    white-space: nowrap;
-    z-index: 3000;
+    display: none;
+    position: fixed !important;
+    bottom: 25px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    z-index: 999999 !important; /* <--- Un número gigantesco para que floten por encima de todo */
 }
 
 /* Estilo de cada botón individual */
