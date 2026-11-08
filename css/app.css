@@ -107,3 +107,29 @@ canvas {
     font-size: 13px;
     color: #ccc;
 }
+
+#ui-buttons-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 3000; /* Por encima de la cámara y de la interfaz de inicio */
+}
+
+#ui-buttons-container button {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745; /* Tu botón color verde */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#ui-buttons-container button:active {
+    background-color: #218838;
+}
