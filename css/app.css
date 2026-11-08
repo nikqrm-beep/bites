@@ -114,7 +114,7 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     display: none; 
-    gap: -15px !important;      /* Muy juntos */
+    gap: -100px !important;      /* Muy juntos */
     z-index: 3000;
 }
 
