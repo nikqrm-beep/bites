@@ -114,18 +114,19 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     display: none; /* Se mantiene oculto hasta que inicia el AR */
-    gap: 10px;     /* <--- Reducimos este valor para que estén menos separados */
+    gap: 0px;      /* <--- Sin espacio entre ellos para que queden pegados */
     z-index: 3000;
 }
 
 #ui-buttons-container button {
-    width: 130px;  
-    height: 145px; 
+    width: 140px;  /* <--- Ancho grande y cuadrado */
+    height: 140px; /* <--- Alto exactamente igual al ancho para que sean 100% cuadrados */
     background: transparent;
     border: none;
-    border-radius: 18px;
+    border-radius: 16px;
     cursor: pointer;
     padding: 0;
+    margin: 0 5px; /* <--- Un pequeño margen simétrico opcional, o déjalo en 0 si los quieres totalmente unidos */
     overflow: hidden;
     transition: transform 0.1s ease;
 }
@@ -133,7 +134,7 @@ canvas {
 #ui-buttons-container button img {
     width: 100%;
     height: 100%;
-    object-fit: fill; 
+    object-fit: fill; /* Llena por completo el cuadro perfecto */
     display: block;
 }
 
