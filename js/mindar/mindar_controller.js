@@ -91,7 +91,7 @@ class MindARController {
 
                 // --- CREAR EL OBJETO DE AUDIO ---
                 // Reemplaza 'assets/audio/tu_audio.mp3' por la ruta real de tu archivo de audio
-                const audioEfecto = new Audio('assets/audio/tu_audio.mp3'); 
+                const audioEfecto = new Audio('assets/pin-batendo-em-cristal.mp3); 
 
                 // --- CAPTURAR LOS BOTONES ESTÁTICOS DEL HTML ---
                 const btnAmarilloHTML = document.getElementById('btnAmarillo');
