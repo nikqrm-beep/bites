@@ -114,13 +114,13 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     display: none; 
-    gap: 5px !important;      /* Muy juntos */
+    gap: -15px !important;      /* Muy juntos */
     z-index: 3000;
 }
 
 #ui-buttons-container button {
-    width: 180px !important;  /* Ancho muy grande y horizontal */
-    height: 110px !important; /* Alto menor para forzar la forma de tarjeta */
+    width: 220px !important;  /* Ancho muy grande y horizontal */
+    height: 170px !important; /* Alto menor para forzar la forma de tarjeta */
     background: transparent !important;
     border: none !important;
     border-radius: 16px;
