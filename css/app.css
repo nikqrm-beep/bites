@@ -118,24 +118,23 @@ canvas {
     z-index: 3000;
 }
 
-/* Estilo general para los botones */
 #ui-buttons-container button {
-    width: 90px;   /* Ancho del botón en pantalla */
-    height: 100px; /* Alto del botón en pantalla (ajústalo según la proporción de tus imágenes) */
+    width: 90px;
+    height: 100px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: transparent; /* Fondo transparente para que solo se vea tu diseño */
-    border: none;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente de respaldo por si falla la imagen */
+    border: 2px solid #00ff00; /* Un borde verde brillante para probar que sí están ahí */
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 0;  /* Oculta el texto interno de los botones HTML */
+    font-size: 0;
     transition: transform 0.1s ease;
 }
 
 #ui-buttons-container button:active {
-    transform: scale(0.92); /* Pequeño efecto al presionarlos */
+    transform: scale(0.92);
 }
-
 /* Imagen específica para cada botón */
 #btnAmarillo {
     background-image: url('../assets/btnDescripcion.png');
