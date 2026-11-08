@@ -113,27 +113,30 @@ canvas {
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    display: none; 
-    gap: -100px !important;      /* Muy juntos */
+    display: block !important;    /* Forzamos bloque normal para controlar los hijos con precisión */
+    text-align: center;
+    white-space: nowrap;          /* Evita que se bajen de línea */
     z-index: 3000;
 }
 
 #ui-buttons-container button {
-    width: 220px !important;  /* Ancho muy grande y horizontal */
-    height: 170px !important; /* Alto menor para forzar la forma de tarjeta */
+    display: inline-block !important; /* Los vuelve elementos en línea para alinearlos lado a lado */
+    width: 170px !important;  
+    height: 105px !important; 
     background: transparent !important;
     border: none !important;
-    border-radius: 16px;
+    border-radius: 14px;
     cursor: pointer;
     padding: 0 !important;
-    margin: 0 !important;
+    margin: 0 -12px !important;   /* <--- ¡El margen negativo horizontal los pegará o superpondrá a tu gusto! */
     overflow: hidden;
+    vertical-align: middle;
 }
 
 #ui-buttons-container button img {
-    
+    width: 100% !important;
     height: 100% !important;
-    object-fit: fill !important; /* Estira la imagen para ocupar todo el rectángulo ancho */
+    object-fit: fill !important;
     display: block;
 }
 /* Imagen específica para cada botón */
