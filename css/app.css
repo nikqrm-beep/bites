@@ -120,7 +120,7 @@ canvas {
 
 #ui-buttons-container button {
     width: 180px !important;  /* Ancho muy grande y horizontal */
-    height: 110px !important; /* Alto menor para forzar la forma de tarjeta */
+    height: 210px !important; /* Alto menor para forzar la forma de tarjeta */
     background: transparent !important;
     border: none !important;
     border-radius: 16px;
