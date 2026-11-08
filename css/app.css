@@ -128,7 +128,7 @@ canvas {
 }
 
 #ui-buttons-container button img {
-    width: 110px;  /* <--- Aumentado de tamaño para que se vean más grandes y claros */
+    width: 610px;  /* <--- Aumentado de tamaño para que se vean más grandes y claros */
     height: auto;  /* Mantiene la proporción original */
     display: block;
 }
