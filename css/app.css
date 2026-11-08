@@ -119,11 +119,11 @@ canvas {
 }
 
 #ui-buttons-container button {
-    width: 130px;  /* <--- Ancho aún mayor (puedes subirlo a 140px o 150px si los quieres gigantes) */
-    height: 145px; /* <--- Alto aún mayor */
+    width: 160px;  /* <--- Ancho grande para que se expandan horizontalmente */
+    height: 100px; /* <--- Alto proporcional estilo tarjeta horizontal */
     background: transparent;
     border: none;
-    border-radius: 18px;
+    border-radius: 16px;
     cursor: pointer;
     padding: 0;
     overflow: hidden;
@@ -133,7 +133,7 @@ canvas {
 #ui-buttons-container button img {
     width: 100%;
     height: 100%;
-    object-fit: fill; /* Mantiene la imagen estirada cubriendo todo el nuevo tamaño */
+    object-fit: fill; /* Llena por completo el rectángulo ancho */
     display: block;
 }
 
