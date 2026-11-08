@@ -119,21 +119,21 @@ canvas {
 }
 
 #ui-buttons-container button {
-    width: 90px;
-    height: 100px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente de respaldo por si falla la imagen */
-    border: 2px solid #00ff00; /* Un borde verde brillante para probar que sí están ahí */
-    border-radius: 12px;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    font-size: 0;
+    padding: 0;
     transition: transform 0.1s ease;
 }
 
+#ui-buttons-container button img {
+    width: 85px;   /* Puedes ajustar este valor si los quieres más grandes o más chicos */
+    height: auto;  /* Mantiene la proporción original de tus imágenes */
+    display: block;
+}
+
 #ui-buttons-container button:active {
-    transform: scale(0.92);
+    transform: scale(0.92); /* Efecto de rebote al presionarlos */
 }
 /* Imagen específica para cada botón */
 #btnAmarillo {
