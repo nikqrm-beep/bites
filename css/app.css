@@ -118,18 +118,24 @@ canvas {
     z-index: 3000;
 }
 
+/* El botón define el tamaño total que deseas */
 #ui-buttons-container button {
-    background: rgba(0, 0, 0, 0.4); /* Fondo oscuro translúcido de respaldo */
-    border: 2px solid #00ff00;    /* Borde verde brillante temporal para ver los límites */
-    border-radius: 12px;
+    width: 100px;  /* Ancho total del botón */
+    height: 110px; /* Alto total del botón */
+    background: transparent;
+    border: 2px solid #00ff00;    /* Borde verde brillante */
+    border-radius: 14px;
     cursor: pointer;
-    padding: 5px;
+    padding: 0;                   /* Sin relleno interno para que la imagen aproveche todo el espacio */
+    overflow: hidden;             /* Oculta cualquier exceso */
     transition: transform 0.1s ease;
 }
 
+/* Forzamos a la imagen a ocupar el 100% del botón */
 #ui-buttons-container button img {
-    width: 610px;  /* <--- Aumentado de tamaño para que se vean más grandes y claros */
-    height: auto;  /* Mantiene la proporción original */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen para que llene el rectángulo sin deformarse */
     display: block;
 }
 
