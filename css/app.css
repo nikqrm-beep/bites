@@ -113,23 +113,38 @@ canvas {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    display: none; /* <--- CAMBIO: Ocultos por defecto */
+    display: none; /* Se mantiene oculto hasta que inicia el AR */
     gap: 15px;
     z-index: 3000;
 }
 
+/* Estilo general para los botones */
 #ui-buttons-container button {
-    padding: 12px 24px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #28a745; /* Tu botón color verde */
+    width: 90px;   /* Ancho del botón en pantalla */
+    height: 100px; /* Alto del botón en pantalla (ajústalo según la proporción de tus imágenes) */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; /* Fondo transparente para que solo se vea tu diseño */
     border: none;
-    border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    font-size: 0;  /* Oculta el texto interno de los botones HTML */
+    transition: transform 0.1s ease;
 }
 
 #ui-buttons-container button:active {
-    background-color: #218838;
+    transform: scale(0.92); /* Pequeño efecto al presionarlos */
+}
+
+/* Imagen específica para cada botón */
+#btnAmarillo {
+    background-image: url('../assets/btn_descripcion.png');
+}
+
+#btnVerde {
+    background-image: url('../assets/btn_modo_uso.png');
+}
+
+#btnRojo {
+    background-image: url('../assets/btn_precauciones.png');
 }
