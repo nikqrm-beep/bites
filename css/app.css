@@ -108,19 +108,21 @@ canvas {
     color: #ccc;
 }
 
+/* Contenedor principal: oculto al inicio por defecto */
 #ui-buttons-container {
+    display: none !important;
     position: fixed;
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    display: block !important;    /* Forzamos bloque normal para controlar los hijos con precisión */
     text-align: center;
-    white-space: nowrap;          /* Evita que se bajen de línea */
+    white-space: nowrap;
     z-index: 3000;
 }
 
+/* Estilo de cada botón individual */
 #ui-buttons-container button {
-    display: inline-block !important; /* Los vuelve elementos en línea para alinearlos lado a lado */
+    display: inline-block !important;
     width: 170px !important;  
     height: 105px !important; 
     background: transparent !important;
@@ -128,11 +130,12 @@ canvas {
     border-radius: 14px;
     cursor: pointer;
     padding: 0 !important;
-    margin: 0 -12px !important;   /* <--- ¡El margen negativo horizontal los pegará o superpondrá a tu gusto! */
+    margin: 0 -6px !important;   /* <--- Acercados y juntos (puedes subir o bajar este número si los quieres más o menos pegados) */
     overflow: hidden;
     vertical-align: middle;
 }
 
+/* Las imágenes dentro de los botones */
 #ui-buttons-container button img {
     width: 100% !important;
     height: 100% !important;
