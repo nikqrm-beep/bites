@@ -137,7 +137,7 @@ canvas {
 }
 /* Imagen específica para cada botón */
 #btnAmarillo {
-    background-image: url('assets/btnDescripcion.png');
+    background-image: url('btnDescripcion.png');
 }
 
 #btnVerde {
