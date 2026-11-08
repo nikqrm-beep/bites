@@ -131,7 +131,7 @@ canvas {
 }
 
 #ui-buttons-container button img {
-    width: 100% !important;
+    
     height: 100% !important;
     object-fit: fill !important; /* Estira la imagen para ocupar todo el rectángulo ancho */
     display: block;
