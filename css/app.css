@@ -146,18 +146,28 @@ canvas {
     display: block;
 }
 
-/* Celular */
-@media (max-width: 600px) {
+/* Celular (vertical y horizontal) */
+@media (max-width: 600px), (pointer: coarse) {
     #ui-buttons-container {
-        width: 100% !important;             /* usa todo el ancho */
+        width: 100% !important;
         max-width: 100% !important;
-        gap: 3px !important;
+        flex-wrap: wrap !important;          /* permite bajar a otra fila */
+        gap: 6px !important;
+        padding: 0 6px !important;
         bottom: calc(10px + env(safe-area-inset-bottom)) !important;
     }
 
     #ui-buttons-container button {
-        max-width: none !important;         /* sin tope: se reparten todo el ancho */
-        height: 120px !important;
+        flex: 1 1 calc(50% - 6px) !important;  /* 2 botones por fila, casi la mitad de la pantalla cada uno */
+        max-width: none !important;
+        min-width: 0 !important;
+        height: 22vh !important;               /* altura según el alto de la pantalla */
+        min-height: 110px !important;
+        max-height: 170px !important;
+    }
+
+    #ui-buttons-container button img {
+        object-fit: fill !important;           /* la imagen llena todo el botón */
     }
 }
 /* Imagen específica para cada botón */
