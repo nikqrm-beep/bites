@@ -110,29 +110,25 @@ canvas {
 
 /* Contenedor principal: oculto al inicio por defecto */
 #ui-buttons-container {
-    display: none;
+    display: none !important;           /* <--- Ocultos por defecto al cargar la página */
     position: fixed !important;
     bottom: 20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    display: flex !important;           /* Usamos Flexbox para distribuir el espacio exacto */
     justify-content: center !important;
     align-items: center !important;
-    gap: 8px !important;                /* Espacio pequeño y estético entre los botones */
+    gap: 8px !important;                
     z-index: 999999 !important;
-    width: 95% !important;              /* Ocupa casi todo el ancho de la pantalla del celular */
-    max-width: 850px !important;        /* Límite generoso para cuando se abra en PC */
+    width: 95% !important;              
+    max-width: 850px !important;        
     box-sizing: border-box !important;
 }
 
 #ui-buttons-container button {
-    flex: 1 !important;                 /* Se estiran automáticamente para repartirse todo el ancho disponible */
-    min-width: 105px !important;        /* Tamaño mínimo seguro para que entren los tres en cualquier celular */
-    max-width: 270px !important;        /* Límite para que en PC no se deformen demasiado */
-    
-    /* Altura grande y generosa hacia arriba para que tengan una presencia visual imponente */
+    flex: 1 !important;                 
+    min-width: 105px !important;        
+    max-width: 270px !important;        
     height: clamp(85px, 26vw, 150px) !important; 
-    
     background: transparent !important;
     border: none !important;
     border-radius: 16px;
