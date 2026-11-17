@@ -162,20 +162,17 @@ canvas {
         width: auto !important;
         min-width: 0 !important;
         max-width: none !important;
-        height: auto !important;        /* la altura sale de la imagen */
+        height: 150px !important;        /* la altura sale de la imagen */
         min-height: 0 !important;
         max-height: none !important;
     }
 
     #ui-buttons-container button img {
         width: 100% !important;
-        height: auto !important;
-        object-fit: contain !important;
+        height: 100% !important;
+        object-fit: fill !important;
     }
 }
-
-#ui-buttons-container button { height: 150px !important; }
-#ui-buttons-container button img { height: 100% !important; object-fit: fill !important; }
 /* Imagen específica para cada botón */
 #btnAmarillo {
     background-image: url('/assets/btnDescripcion.png');
