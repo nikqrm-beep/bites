@@ -41,7 +41,7 @@
 	</div>
 
 	<!-- BOTONES ESTÁTICOS DE LA INTERFAZ -->
-<div id="ui-buttons-container" style="display: none;">
+<div id="ui-buttons-container">
     <button id="btnAmarillo">
         <img src="assets/btnDescripcion.png" alt="Descripción">
     </button>
@@ -163,11 +163,6 @@
 							overlay.classList.add('hidden');
 							setTimeout(() => overlay.remove(), 400);
 						}
-
-						const uiButtons = document.getElementById('ui-buttons-container');
-if (uiButtons) {
-    uiButtons.style.display = 'flex';
-}
 					} catch (e) {
 						console.error('Error detallado al iniciar:', e);
 						startButton.textContent = 'Reintentar';
