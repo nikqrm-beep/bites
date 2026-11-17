@@ -159,10 +159,10 @@ canvas {
 
     #ui-buttons-container button {
         flex: 1 1 auto !important;      /* se reparten todo el ancho según su proporción */
-        width: auto !important;
+        width: 225px !important;
         min-width: 0 !important;
         max-width: none !important;
-        height: 350px !important;        /* la altura sale de la imagen */
+        height: 225px !important;        /* la altura sale de la imagen */
         min-height: 0 !important;
         max-height: none !important;
     }
