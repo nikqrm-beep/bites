@@ -120,15 +120,16 @@ canvas {
     gap: 8px !important;                
     z-index: 999999 !important;
     width: 95% !important;              
-    max-width: 850px !important;        
+    max-width: 1200px !important;          /* antes 850px: más ancho en computador */       
     box-sizing: border-box !important;
 }
 
+
 #ui-buttons-container button {
     flex: 1 !important;
-    min-width: 0 !important;             /* deja que se ajusten al ancho disponible */
-    max-width: 270px !important;
-    height: clamp(110px, 30vw, 150px) !important;  /* más alto en celular */
+    min-width: 0 !important;
+    max-width: 380px !important;           /* antes 270px */
+    height: clamp(120px, 14vw, 220px) !important;  /* más alto en computador */
     background: transparent !important;
     border: none !important;
     border-radius: 16px;
@@ -145,16 +146,18 @@ canvas {
     display: block;
 }
 
-/* Ajustes específicos para celular */
+/* Celular */
 @media (max-width: 600px) {
     #ui-buttons-container {
-        width: 98% !important;
-        gap: 4px !important;
+        width: 100% !important;             /* usa todo el ancho */
+        max-width: 100% !important;
+        gap: 3px !important;
         bottom: calc(10px + env(safe-area-inset-bottom)) !important;
     }
 
     #ui-buttons-container button {
-        height: 120px !important;        /* altura fija, más grande */
+        max-width: none !important;         /* sin tope: se reparten todo el ancho */
+        height: 120px !important;
     }
 }
 /* Imagen específica para cada botón */
