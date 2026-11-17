@@ -146,28 +146,33 @@ canvas {
     display: block;
 }
 
-/* Celular (vertical y horizontal) */
+/* Celular: todos en una sola fila */
 @media (max-width: 600px), (pointer: coarse) {
     #ui-buttons-container {
         width: 100% !important;
         max-width: 100% !important;
-        flex-wrap: wrap !important;          /* permite bajar a otra fila */
-        gap: 6px !important;
-        padding: 0 6px !important;
+        flex-wrap: nowrap !important;        /* siempre una sola fila */
+        justify-content: center !important;
+        gap: 2px !important;                 /* casi pegados */
+        padding: 0 4px !important;
         bottom: calc(10px + env(safe-area-inset-bottom)) !important;
     }
 
     #ui-buttons-container button {
-        flex: 1 1 calc(50% - 6px) !important;  /* 2 botones por fila, casi la mitad de la pantalla cada uno */
-        max-width: none !important;
+        flex: 0 1 auto !important;           /* el ancho sigue a la imagen */
+        width: auto !important;
         min-width: 0 !important;
-        height: 22vh !important;               /* altura según el alto de la pantalla */
-        min-height: 110px !important;
-        max-height: 170px !important;
+        max-width: none !important;
+        height: min(30vw, 38vh) !important;  /* tan grande como quepa en una fila */
+        min-height: 0 !important;
+        max-height: none !important;
     }
 
     #ui-buttons-container button img {
-        object-fit: fill !important;           /* la imagen llena todo el botón */
+        width: auto !important;              /* mantiene la proporción original */
+        height: 100% !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
     }
 }
 /* Imagen específica para cada botón */
