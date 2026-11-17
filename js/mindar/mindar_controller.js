@@ -207,14 +207,6 @@ class MindARController {
         this.started = true;
         this.dispatch('start', {});
     }
-
-        // Muestra los botones únicamente cuando arranca la AR con éxito
-        const uiContainer = document.getElementById('ui-buttons-container');
-        if (uiContainer) {
-            uiContainer.style.setProperty('display', 'flex', 'important');
-        }
-    }
-
     stop() {
         if (!this.mindar) return;
         if (this.mindar.renderer?.setAnimationLoop) {
