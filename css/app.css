@@ -151,27 +151,30 @@ canvas {
         width: 100% !important;
         max-width: 100% !important;
         flex-wrap: nowrap !important;
+        justify-content: flex-start !important;  /* con center se cortaría el primero */
         align-items: flex-end !important;
-        gap: 3px !important;
-        padding: 0 3px !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        gap: 4px !important;
+        padding: 0 4px !important;
         bottom: calc(8px + env(safe-area-inset-bottom)) !important;
     }
 
     #ui-buttons-container button {
-        flex: 1 1 0 !important;          /* los tres miden exactamente lo mismo */
-        width: auto !important;
+        flex: 0 0 250px !important;
+        width: 250px !important;
+        height: auto !important;
         min-width: 0 !important;
         max-width: none !important;
-        height: auto !important;
         min-height: 0 !important;
         max-height: none !important;
-        aspect-ratio: 1 / 1 !important;  /* cuadrados */
+        aspect-ratio: 1 / 1 !important;
     }
 
     #ui-buttons-container button img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: fill !important;     /* la imagen llena todo el cuadrado */
+        object-fit: fill !important;
     }
 }
 /* Imagen específica para cada botón */
