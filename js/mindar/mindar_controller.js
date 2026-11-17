@@ -182,26 +182,23 @@ class MindARController {
         if (player?.setRenderEnabled) player.setRenderEnabled(false);
 
         this.bindClickEvents();
-console.log("1. Intentando iniciar MindAR...");
 
-        try {
+
+       try {
             await this.mindar.start();
-            console.log("2. ¡MindAR inició con éxito!");
         } catch (e) {
-            console.error("ERROR CRÍTICO AL INICIAR CÁMARA:", e);
             this.mindar = null;
             this.started = false;
             const detail = (e && e.message) ? `: ${e.message}` : '. Comprobá que la cámara esté disponible y permitas el acceso';
             throw new Error(`No se pudo iniciar la cámara AR${detail}`);
-        }
+        } // <--- Asegúrate de que esta llave cierre bien el catch
 
-        // ==========================================
-        // 🌟 PEGA ESTAS 4 LÍNEAS EXACTAMENTE AQUÍ:
-        // ==========================================
+        // --- MUESTRA LOS BOTONES AQUÍ ---
         const uiContainer = document.getElementById('ui-buttons-container');
         if (uiContainer) {
             uiContainer.style.setProperty('display', 'flex', 'important');
         }
+        // ---------------------------------
 
         renderer.setAnimationLoop(() => {
             this.dispatch('update', {});
@@ -210,7 +207,6 @@ console.log("1. Intentando iniciar MindAR...");
 
         this.started = true;
         this.dispatch('start', {});
-    }  // <--- Aquí termina la función start()
 
         // Muestra los botones únicamente cuando arranca la AR con éxito
         const uiContainer = document.getElementById('ui-buttons-container');
