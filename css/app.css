@@ -110,7 +110,7 @@ canvas {
 
 /* Contenedor principal: oculto al inicio por defecto */
 #ui-buttons-container {
-    display: none !important;           /* <--- Ocultos por defecto al cargar la página */
+    display: none !important;           /* <--- Esto obliga a que nazcan ocultos */
     position: fixed !important;
     bottom: 20px !important;
     left: 50% !important;
