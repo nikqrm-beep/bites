@@ -122,15 +122,15 @@ canvas {
 
 #ui-buttons-container button {
     display: inline-block !important;
-    /* Ancho controlado para que los 3 quepan juntos en la pantalla del celular sin salirse (y crecen hasta 420px en PC) */
-    width: clamp(95px, 30vw, 420px) !important;  
+    /* ANCHO mayor para que ocupen buen espacio horizontal sin salirse del celular (y crecen en PC) */
+    width: clamp(115px, 32vw, 380px) !important;  
     
-    /* ¡ALTURA AMPLIADA HACIA ARRIBA!: Ahora tienen mucho más espacio vertical en celular (hasta 42vw) y PC (hasta 300px) */
-    height: clamp(110px, 42vw, 300px) !important; 
+    /* ALTO proporcional y menor que el ancho para mantener el formato de tarjeta horizontal */
+    height: clamp(68px, 19vw, 220px) !important; 
     
     background: transparent !important;
     border: none !important;
-    border-radius: 16px;
+    border-radius: 14px;
     cursor: pointer;
     padding: 0 !important;
     margin: 0 2px !important;   
