@@ -187,11 +187,13 @@ class MindARController {
             renderer.render(scene, camera);
         });
 
-        this.started = true;
+       this.started = true;
         this.dispatch('start', {});
+
+        // Muestra los botones únicamente cuando arranca la AR con éxito
         const uiContainer = document.getElementById('ui-buttons-container');
         if (uiContainer) {
-            uiContainer.style.setProperty('display', 'block', 'important');
+            uiContainer.style.setProperty('display', 'flex', 'important');
         }
     }
 
