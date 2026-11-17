@@ -129,7 +129,7 @@ canvas {
     width: clamp(180px, 5.5vw, 420px) !important;  
     
     /* Mantenemos la proporción correcta de tarjeta horizontal para que no se deformen */
-    height: clamp(68px, 20vw, 250px) !important; 
+    height: clamp(90px, 20vw, 250px) !important; 
     
     background: transparent !important;
     border: none !important;
