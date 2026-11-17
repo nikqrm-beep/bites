@@ -37,6 +37,12 @@ class MindARController {
 
         if (this.started) return;
 
+        // 🌟 PÓNELO AQUÍ: Apenas entra a start(), fuerza la aparición de los botones
+        const uiContainer = document.getElementById('ui-buttons-container');
+        if (uiContainer) {
+            uiContainer.style.setProperty('display', 'flex', 'important');
+        }
+
         // Limpia restos de un intento anterior (p.ej. un <video> huérfano).
         if (this.mindar) { this.stop(); }
         this.container.replaceChildren();
