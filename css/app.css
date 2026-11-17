@@ -162,7 +162,7 @@ canvas {
         width: auto !important;
         min-width: 0 !important;
         max-width: none !important;
-        height: 200px !important;        /* la altura sale de la imagen */
+        height: 350px !important;        /* la altura sale de la imagen */
         min-height: 0 !important;
         max-height: none !important;
     }
