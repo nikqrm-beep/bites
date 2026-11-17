@@ -125,24 +125,37 @@ canvas {
 }
 
 #ui-buttons-container button {
-    flex: 1 !important;                 
-    min-width: 105px !important;        
-    max-width: 270px !important;        
-    height: clamp(85px, 26vw, 150px) !important; 
+    flex: 1 !important;
+    min-width: 0 !important;             /* deja que se ajusten al ancho disponible */
+    max-width: 270px !important;
+    height: clamp(110px, 30vw, 150px) !important;  /* más alto en celular */
     background: transparent !important;
     border: none !important;
     border-radius: 16px;
     cursor: pointer;
     padding: 0 !important;
-    margin: 0 !important;   
+    margin: 0 !important;
     overflow: hidden;
+    touch-action: manipulation;
 }
-
 #ui-buttons-container button img {
     width: 100% !important;
     height: 100% !important;
     object-fit: fill !important;
     display: block;
+}
+
+/* Ajustes específicos para celular */
+@media (max-width: 600px) {
+    #ui-buttons-container {
+        width: 98% !important;
+        gap: 4px !important;
+        bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+    }
+
+    #ui-buttons-container button {
+        height: 120px !important;        /* altura fija, más grande */
+    }
 }
 /* Imagen específica para cada botón */
 #btnAmarillo {
