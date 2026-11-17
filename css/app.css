@@ -146,35 +146,36 @@ canvas {
     display: block;
 }
 
-/* Celular: todos en una sola fila */
 @media (max-width: 600px), (pointer: coarse) {
     #ui-buttons-container {
         width: 100% !important;
         max-width: 100% !important;
-        flex-wrap: nowrap !important;        /* siempre una sola fila */
-        justify-content: center !important;
-        gap: 2px !important;                 /* casi pegados */
-        padding: 0 4px !important;
-        bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-end !important;
+        gap: 2px !important;
+        padding: 0 2px !important;
+        bottom: calc(8px + env(safe-area-inset-bottom)) !important;
     }
 
     #ui-buttons-container button {
-        flex: 0 1 auto !important;           /* el ancho sigue a la imagen */
+        flex: 1 1 auto !important;      /* se reparten todo el ancho según su proporción */
         width: auto !important;
         min-width: 0 !important;
         max-width: none !important;
-        height: min(30vw, 38vh) !important;  /* tan grande como quepa en una fila */
+        height: auto !important;        /* la altura sale de la imagen */
         min-height: 0 !important;
         max-height: none !important;
     }
 
     #ui-buttons-container button img {
-        width: auto !important;              /* mantiene la proporción original */
-        height: 100% !important;
-        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
         object-fit: contain !important;
     }
 }
+
+#ui-buttons-container button { height: 150px !important; }
+#ui-buttons-container button img { height: 100% !important; object-fit: fill !important; }
 /* Imagen específica para cada botón */
 #btnAmarillo {
     background-image: url('/assets/btnDescripcion.png');
