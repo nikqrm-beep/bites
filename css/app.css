@@ -152,25 +152,26 @@ canvas {
         max-width: 100% !important;
         flex-wrap: nowrap !important;
         align-items: flex-end !important;
-        gap: 2px !important;
-        padding: 0 2px !important;
+        gap: 3px !important;
+        padding: 0 3px !important;
         bottom: calc(8px + env(safe-area-inset-bottom)) !important;
     }
 
     #ui-buttons-container button {
-        flex: 1 1 auto !important;      /* se reparten todo el ancho según su proporción */
-        width: 525px !important;
+        flex: 1 1 0 !important;          /* los tres miden exactamente lo mismo */
+        width: auto !important;
         min-width: 0 !important;
         max-width: none !important;
-        height: 225px !important;        /* la altura sale de la imagen */
+        height: auto !important;
         min-height: 0 !important;
         max-height: none !important;
+        aspect-ratio: 1 / 1 !important;  /* cuadrados */
     }
 
     #ui-buttons-container button img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: fill !important;
+        object-fit: fill !important;     /* la imagen llena todo el cuadrado */
     }
 }
 /* Imagen específica para cada botón */
