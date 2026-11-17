@@ -182,10 +182,13 @@ class MindARController {
         if (player?.setRenderEnabled) player.setRenderEnabled(false);
 
         this.bindClickEvents();
+console.log("1. Intentando iniciar MindAR...");
 
         try {
             await this.mindar.start();
+            console.log("2. ¡MindAR inició con éxito!");
         } catch (e) {
+            console.error("ERROR CRÍTICO AL INICIAR CÁMARA:", e);
             this.mindar = null;
             this.started = false;
             const detail = (e && e.message) ? `: ${e.message}` : '. Comprobá que la cámara esté disponible y permitas el acceso';
