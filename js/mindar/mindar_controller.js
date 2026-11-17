@@ -193,12 +193,6 @@ class MindARController {
             throw new Error(`No se pudo iniciar la cámara AR${detail}`);
         }
 
-        // --- MUESTRA LOS BOTONES (ÚNICA DECLARACIÓN) ---
-        const uiContainer = document.getElementById('ui-buttons-container');
-        if (uiContainer) {
-            uiContainer.style.setProperty('display', 'flex', 'important');
-        }
-
         renderer.setAnimationLoop(() => {
             this.dispatch('update', {});
             renderer.render(scene, camera);
