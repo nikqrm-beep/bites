@@ -37,16 +37,6 @@ class MindARController {
 
         if (this.started) return;
 
-       // 🛡️ BLOQUE SEGURO: Intenta mostrar los botones sin arriesgarse a romper el flujo
-        try {
-            const uiContainer = document.getElementById('ui-buttons-container');
-            if (uiContainer) {
-                uiContainer.style.setProperty('display', 'flex', 'important');
-            }
-        } catch (e) {
-            console.warn("No se pudo mostrar el contenedor de botones aún:", e);
-        }
-
         // Limpia restos de un intento anterior (p.ej. un <video> huérfano).
         if (this.mindar) { this.stop(); }
         this.container.replaceChildren();
@@ -100,7 +90,6 @@ class MindARController {
                 if (imgRojo) imgRojo.visible = false;
 
                 // --- CREAR EL OBJETO DE AUDIO ---
-                // Reemplaza 'assets/audio/tu_audio.mp3' por la ruta real de tu archivo de audio
                 const audioEfecto = new Audio('assets/pin-batendo-em-cristal.mp3'); 
 
                 // --- CAPTURAR LOS BOTONES ESTÁTICOS DEL HTML ---
@@ -116,8 +105,7 @@ class MindARController {
                         if (imgGrande) imgGrande.visible = false;
                         if (imgChiquitos) imgChiquitos.visible = true;
 
-                        // Reproducir audio
-                        audioEfecto.currentTime = 0; // Reinicia el audio si ya estaba sonando
+                        audioEfecto.currentTime = 0;
                         audioEfecto.play().catch(err => console.log("Audio bloqueado:", err));
                     });
                 }
@@ -130,7 +118,6 @@ class MindARController {
                         if (imgGrande) imgGrande.visible = false;
                         if (imgChiquitos) imgChiquitos.visible = true;
 
-                        // Reproducir audio
                         audioEfecto.currentTime = 0;
                         audioEfecto.play().catch(err => console.log("Audio bloqueado:", err));
                     });
@@ -144,7 +131,6 @@ class MindARController {
                         if (imgGrande) imgGrande.visible = false;
                         if (imgChiquitos) imgChiquitos.visible = true;
 
-                        // Reproducir audio
                         audioEfecto.currentTime = 0;
                         audioEfecto.play().catch(err => console.log("Audio bloqueado:", err));
                     });
@@ -178,19 +164,27 @@ class MindARController {
         this.copyLights(scene, player);
         this.copyRendererSettings(renderer, player);
 
-        // El player sigue corriendo (events update/audio) pero deja de pintar.
         if (player?.setRenderEnabled) player.setRenderEnabled(false);
 
         this.bindClickEvents();
 
-
-       try {
+        try {
             await this.mindar.start();
         } catch (e) {
             this.mindar = null;
             this.started = false;
             const detail = (e && e.message) ? `: ${e.message}` : '. Comprobá que la cámara esté disponible y permitas el acceso';
             throw new Error(`No se pudo iniciar la cámara AR${detail}`);
+        }
+
+        // --- 🌟 LOS BOTONES SÓLO APARECEN AQUÍ, CUANDO LA CÁMARA YA ARRANCÓ ---
+        try {
+            const uiContainer = document.getElementById('ui-buttons-container');
+            if (uiContainer) {
+                uiContainer.style.setProperty('display', 'flex', 'important');
+            }
+        } catch (e) {
+            console.warn("No se pudo mostrar el contenedor de botones aún:", e);
         }
 
         renderer.setAnimationLoop(() => {
@@ -201,6 +195,7 @@ class MindARController {
         this.started = true;
         this.dispatch('start', {});
     }
+
     stop() {
         if (!this.mindar) return;
         if (this.mindar.renderer?.setAnimationLoop) {
@@ -324,5 +319,4 @@ class MindARController {
     }
 
 }
-
 export { MindARController };
