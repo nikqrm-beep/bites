@@ -112,30 +112,34 @@ canvas {
 #ui-buttons-container {
     display: none;
     position: fixed !important;
-    bottom: 25px !important;
+    bottom: 20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    text-align: center !important;
-    white-space: nowrap !important;
+    display: flex !important;           /* Usamos Flexbox para distribuir el espacio exacto */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;                /* Espacio pequeño y estético entre los botones */
     z-index: 999999 !important;
+    width: 95% !important;              /* Ocupa casi todo el ancho de la pantalla del celular */
+    max-width: 850px !important;        /* Límite generoso para cuando se abra en PC */
+    box-sizing: border-box !important;
 }
 
 #ui-buttons-container button {
-    display: inline-block !important;
-    /* ANCHO mayor para que ocupen buen espacio horizontal sin salirse del celular (y crecen en PC) */
-    width: clamp(115px, 32vw, 380px) !important;  
+    flex: 1 !important;                 /* Se estiran automáticamente para repartirse todo el ancho disponible */
+    min-width: 105px !important;        /* Tamaño mínimo seguro para que entren los tres en cualquier celular */
+    max-width: 270px !important;        /* Límite para que en PC no se deformen demasiado */
     
-    /* ALTO proporcional y menor que el ancho para mantener el formato de tarjeta horizontal */
-    height: clamp(68px, 19vw, 220px) !important; 
+    /* Altura grande y generosa hacia arriba para que tengan una presencia visual imponente */
+    height: clamp(85px, 26vw, 150px) !important; 
     
     background: transparent !important;
     border: none !important;
-    border-radius: 14px;
+    border-radius: 16px;
     cursor: pointer;
     padding: 0 !important;
-    margin: 0 2px !important;   
+    margin: 0 !important;   
     overflow: hidden;
-    vertical-align: middle;
 }
 
 #ui-buttons-container button img {
