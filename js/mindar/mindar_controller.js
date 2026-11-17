@@ -192,13 +192,22 @@ class MindARController {
             throw new Error(`No se pudo iniciar la cámara AR${detail}`);
         }
 
+        // ==========================================
+        // 🌟 PEGA ESTAS 4 LÍNEAS EXACTAMENTE AQUÍ:
+        // ==========================================
+        const uiContainer = document.getElementById('ui-buttons-container');
+        if (uiContainer) {
+            uiContainer.style.setProperty('display', 'flex', 'important');
+        }
+
         renderer.setAnimationLoop(() => {
             this.dispatch('update', {});
             renderer.render(scene, camera);
         });
 
-       this.started = true;
+        this.started = true;
         this.dispatch('start', {});
+    }  // <--- Aquí termina la función start()
 
         // Muestra los botones únicamente cuando arranca la AR con éxito
         const uiContainer = document.getElementById('ui-buttons-container');
