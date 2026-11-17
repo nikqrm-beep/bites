@@ -37,10 +37,14 @@ class MindARController {
 
         if (this.started) return;
 
-        // 🌟 PÓNELO AQUÍ: Apenas entra a start(), fuerza la aparición de los botones
-        const uiContainer = document.getElementById('ui-buttons-container');
-        if (uiContainer) {
-            uiContainer.style.setProperty('display', 'flex', 'important');
+       // 🛡️ BLOQUE SEGURO: Intenta mostrar los botones sin arriesgarse a romper el flujo
+        try {
+            const uiContainer = document.getElementById('ui-buttons-container');
+            if (uiContainer) {
+                uiContainer.style.setProperty('display', 'flex', 'important');
+            }
+        } catch (e) {
+            console.warn("No se pudo mostrar el contenedor de botones aún:", e);
         }
 
         // Limpia restos de un intento anterior (p.ej. un <video> huérfano).
