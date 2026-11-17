@@ -177,6 +177,17 @@ class MindARController {
             throw new Error(`No se pudo iniciar la cámara AR${detail}`);
         }
 
+        // --- 🔍 RASTREADOR DE BOTONES ---
+        const uiContainer = document.getElementById('ui-buttons-container');
+        console.log("Buscando contenedor de botones en el HTML:", uiContainer);
+        
+        if (uiContainer) {
+            uiContainer.style.setProperty('display', 'flex', 'important');
+            console.log("¡Éxito: Se forzó el display flex al contenedor!");
+        } else {
+            console.error("¡ALERTA: No se encontró ningún elemento con id 'ui-buttons-container' en tu HTML!");
+        }
+
         // --- 🌟 LOS BOTONES SÓLO APARECEN AQUÍ, CUANDO LA CÁMARA YA ARRANCÓ ---
         try {
             const uiContainer = document.getElementById('ui-buttons-container');
