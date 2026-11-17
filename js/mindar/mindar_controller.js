@@ -191,14 +191,13 @@ class MindARController {
             this.started = false;
             const detail = (e && e.message) ? `: ${e.message}` : '. Comprobá que la cámara esté disponible y permitas el acceso';
             throw new Error(`No se pudo iniciar la cámara AR${detail}`);
-        } // <--- Asegúrate de que esta llave cierre bien el catch
+        }
 
-        // --- MUESTRA LOS BOTONES AQUÍ ---
+        // --- MUESTRA LOS BOTONES (ÚNICA DECLARACIÓN) ---
         const uiContainer = document.getElementById('ui-buttons-container');
         if (uiContainer) {
             uiContainer.style.setProperty('display', 'flex', 'important');
         }
-        // ---------------------------------
 
         renderer.setAnimationLoop(() => {
             this.dispatch('update', {});
@@ -207,6 +206,7 @@ class MindARController {
 
         this.started = true;
         this.dispatch('start', {});
+    }
 
         // Muestra los botones únicamente cuando arranca la AR con éxito
         const uiContainer = document.getElementById('ui-buttons-container');
