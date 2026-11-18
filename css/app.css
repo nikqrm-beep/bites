@@ -110,26 +110,33 @@ canvas {
 
 /* Contenedor principal: oculto al inicio por defecto */
 #ui-buttons-container {
-    display: none !important;           /* <--- Esto obliga a que nazcan ocultos */
+    --gap: 6px;
+    --size: min(18vw, 280px, 35vh);          /* PC: cuadrados grandes */
+    display: none !important;                /* tu JS lo activa con display:flex */
     position: fixed !important;
-    bottom: 20px !important;
+    bottom: calc(20px + env(safe-area-inset-bottom)) !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
+    flex-wrap: nowrap !important;            /* siempre una sola fila */
     justify-content: center !important;
     align-items: center !important;
-    gap: 8px !important;                
+    gap: var(--gap) !important;
+    padding: 0 !important;
+    width: auto !important;
+    max-width: 100vw !important;
     z-index: 999999 !important;
-    width: 95% !important;              
-    max-width: 1200px !important;          /* antes 850px: más ancho en computador */       
     box-sizing: border-box !important;
 }
 
-
 #ui-buttons-container button {
-    flex: 1 !important;
+    flex: 0 0 var(--size) !important;
+    width: var(--size) !important;
+    height: var(--size) !important;          /* igual al ancho = cuadrado */
     min-width: 0 !important;
-    max-width: 380px !important;           /* antes 270px */
-    height: clamp(120px, 14vw, 220px) !important;  /* más alto en computador */
+    max-width: none !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 1 / 1 !important;
     background: transparent !important;
     border: none !important;
     border-radius: 16px;
@@ -139,6 +146,7 @@ canvas {
     overflow: hidden;
     touch-action: manipulation;
 }
+
 #ui-buttons-container button img {
     width: 100% !important;
     height: 100% !important;
@@ -146,37 +154,12 @@ canvas {
     display: block;
 }
 
-@media (max-width: 600px), (pointer: coarse) {
+/* Celular: los 3 cuadrados llenan todo el ancho en una sola fila */
+@media (max-width: 600px) {
     #ui-buttons-container {
-        --size: 40vw;                         /* cambia este valor para subir o bajar el tamaño */
-        width: 100% !important;
-        max-width: 100% !important;
-        left: 0 !important;
-        transform: none !important;
-        flex-wrap: wrap !important;           /* permite la segunda fila */
-        justify-content: center !important;   /* el tercero queda centrado abajo */
-        align-items: flex-end !important;
-        overflow: visible !important;
-        gap: 4px !important;
-        padding: 0 !important;
-        bottom: calc(6px + env(safe-area-inset-bottom)) !important;
-    }
-
-    #ui-buttons-container button {
-        flex: 0 0 var(--size) !important;
-        width: var(--size) !important;
-        max-width: none !important;
-        min-width: 0 !important;
-        height: var(--size) !important;       /* igual al ancho = cuadrado */
-        min-height: 0 !important;
-        max-height: none !important;
-        aspect-ratio: 1 / 1 !important;
-    }
-
-    #ui-buttons-container button img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: fill !important;
+        --gap: 4px;
+        --size: min(calc((100vw - 2 * var(--gap) - 8px) / 3), 40vh);
+        bottom: calc(8px + env(safe-area-inset-bottom)) !important;
     }
 }
 /* Imagen específica para cada botón */
