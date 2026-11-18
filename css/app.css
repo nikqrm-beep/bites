@@ -98,7 +98,8 @@ canvas {
 #progress-bar-fill {
     width: 0%;
     height: 100%;
-    background-color: #1976d2;
+    background-color: #39ff14;
+    box-shadow: 0 0 8px #39ff14, 0 0 16px #39ff14;
     transition: width 0.3s ease;
 }
 
@@ -110,7 +111,7 @@ canvas {
 
 /* Contenedor principal: oculto al inicio por defecto */
 #ui-buttons-container {
-    --gap: 24px;
+    --gap: 48px;
     --size: min(18vw, 280px, 35vh);          /* PC: cuadrados grandes */
     display: none !important;                /* tu JS lo activa con display:flex */
     position: fixed !important;
