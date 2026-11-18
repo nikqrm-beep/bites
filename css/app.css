@@ -110,7 +110,7 @@ canvas {
 
 /* Contenedor principal: oculto al inicio por defecto */
 #ui-buttons-container {
-    --gap: 6px;
+    --gap: 24px;
     --size: min(18vw, 280px, 35vh);          /* PC: cuadrados grandes */
     display: none !important;                /* tu JS lo activa con display:flex */
     position: fixed !important;
